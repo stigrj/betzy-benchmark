@@ -8,15 +8,15 @@ hours=$5
 account=$6
 
 world_size=6
-world_prec=6
+world_prec=4
 angstrom=true
-method="PBE"
+method="LDA"
 kain=5
 max_iter=100
 localize=true
 guess_type="sad_dz"
 guess_prec=3
-orbital_thrs=3
+orbital_thrs=2
 checkpoint=false
 
 echo "molecule" $mol
