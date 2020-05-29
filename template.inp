@@ -1,0 +1,25 @@
+# vim:syntax=sh:
+
+world_prec = 1.0e-WORLD_PREC
+world_size = WORLD_SIZE
+
+Molecule {
+  angstrom = ANGSTROM
+$coords
+$end
+}
+
+WaveFunction {
+  method = METHOD
+}
+
+SCF {
+  kain = KAIN
+  max_iter = MAX_ITER
+  localize = LOCALIZE
+  guess_type = GUESS_TYPE
+  guess_prec = 1.0e-GUESS_PREC
+  orbital_thrs = 1.0e-ORB_THRS
+  write_checkpoint = CHECKPOINT
+}
+
