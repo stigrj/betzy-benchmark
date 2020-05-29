@@ -6,12 +6,9 @@
 #SBATCH --cpus-per-task=CPUS
 #SBATCH --time=0-HOURS:00:00
 #SBATCH --account=ACCOUNT
-#SBATCH --partition=PARTITION
-#SBATCH --output=OUTPUT.slurm
-#SBATCH --error=OUTPUT.slurm
 
-source BENCHMARK_ROOT/modules.txt
-source BENCHMARK_ROOT/venv/bin/activate
+source ../modules.txt
+source ../venv/bin/activate
 parselglossy --version || exit 1
 
 # Make scratch
@@ -24,8 +21,8 @@ cp mrchem.inp ${SCRATCH}/mrchem.inp
 
 # Run calculation
 cd ${SCRATCH}
-BENCHMARK_ROOT/mrchem_install/bin/mrchem -D mrchem.inp
-srun BENCHMARK_ROOT/mrchem_install/bin/mrchem.x mrchem_parsed.json >mrchem.out
+${SLURM_SUBMIT_DIR}/../mrchem_install/bin/mrchem -D mrchem.inp
+srun ${SLURM_SUBMIT_DIR}/../mrchem_install/bin/mrchem.x mrchem_parsed.json >mrchem.out
 
 # Copy back
 cd ${SLURM_SUBMIT_DIR}
