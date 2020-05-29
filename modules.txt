@@ -1,0 +1,4 @@
+module --quiet purge
+module load CMake/3.12.1
+module load intel/2019b
+module load Python/3.7.4-GCCcore-8.3.0

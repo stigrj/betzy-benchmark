@@ -10,10 +10,7 @@
 #SBATCH --output=OUTPUT.slurm
 #SBATCH --error=OUTPUT.slurm
 
-module --quiet purge
-module load intel/2019b
-module load Python/3.7.4-GCCcore-8.3.0
-
+source BENCHMARK_ROOT/modules.txt
 source BENCHMARK_ROOT/venv/bin/activate
 parselglossy --version || exit 1
 
